@@ -16,6 +16,6 @@ echo "<font color=#000> Bellato: <font color=lime> $B_Num";
 echo "</div> "; 
 echo "<div> "; 
 echo "<font color=#000> Cora: <font color=lime> $C_Num"; 
-echo "</div> "; 
+echo "</div> </font>"; 
 
 ?>
