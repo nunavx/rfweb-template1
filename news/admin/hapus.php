@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('localhost','root','xjjwknjt12','website');
+$con=mysqli_connect('localhost','root','Your Password','website');
 
 if(isset($_GET['del']))
 $id=$_GET['del'];
@@ -19,7 +19,7 @@ switch($_GET['data'])
     break;
         
     case 'list_berita':
-    $data=mysqli_fetch_row(mysqli_query($con,"select gambar from berita where id='$id'"));
+    $data=mysqli_fetch_row(mysqli_query($con,"select image from berita where id='$id'"));
     unlink("../img/$data[0]");
     mysqli_query($con,"delete from berita where id='$id'");
      header("location:index.php?page=list_berita");

@@ -15,7 +15,7 @@ if(isset($_POST['save']))
         move_uploaded_file($_FILES['foto']['tmp_name'], "../img/" . basename(($getId[0]+1).$ext));
     }
     
-    mysqli_query($con,"insert into berita values('','".date('Y-m-d')."','".($getId[0]+1).$ext."','$judul','$konten')");
+    mysqli_query($con,"insert into berita values('','".date('Y-m-d')."','".($getId[0]+1).$ext."','$title','$content')");
     
       echo "
     <script>
@@ -27,7 +27,7 @@ elseif(isset($_POST['update']))
 {
     if(!empty($_FILES['foto']['tmp_name']))
     { 
-        unlink("../img/$gambar");
+        unlink("../img/$image");
         $ext=strtolower(substr($_FILES['foto']['name'],-3));
         if($ext=='gif')
             $ext=".gif";
@@ -35,10 +35,10 @@ elseif(isset($_POST['update']))
             $ext=".png";
         move_uploaded_file($_FILES['foto']['tmp_name'], "../img/" . basename(($_GET['id']).$ext));
         
-        mysqli_query($con,"update berita set judul='$judul',gambar='".$_GET['id'].$ext."',konten='$konten' where id='".$_GET['id']."'");
+        mysqli_query($con,"update berita set title='$title',image='".$_GET['id'].$ext."',content='$content' where id='".$_GET['id']."'");
     }
     else
-        mysqli_query($con,"update berita set judul='$judul',konten='$konten' where id='".$_GET['id']."'");
+        mysqli_query($con,"update berita set title='$title',content='$content' where id='".$_GET['id']."'");
     
     echo "
     <script>
@@ -75,29 +75,29 @@ $data=mysqli_fetch_row(mysqli_query($con,"select * from berita where id='".$_GET
                 </div>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
                    <input type="hidden" name="id" value="<?php echo isset($_GET['id'])?$_GET['id']:''; ?>">
-                   <input type="hidden" name="gambar" value="<?php echo isset($data[2])?$data[2]:''; ?>">
+                   <input type="hidden" name="image" value="<?php echo isset($data[2])?$data[2]:''; ?>">
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label for="dua" class="col-sm-2 control-label">Tanggal</label>
+                            <label for="dua" class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="dua" value="<?php echo isset($_GET['id'])?$data[1]:date('d-m-Y'); ?>" disabled>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tiga" class="col-sm-2 control-label">Judul Berita</label>
+                            <label for="tiga" class="col-sm-2 control-label">News Title</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Judul" name="judul" id="tiga" value="<?php echo isset($data[3])?$data[3]:''; ?>">
+                                <input type="text" class="form-control" placeholder="title" name="title" id="tiga" value="<?php echo isset($data[3])?$data[3]:''; ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tiga" class="col-sm-2 control-label">Isi Berita</label>
+                            <label for="tiga" class="col-sm-2 control-label">News Content</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control konten" placeholder="Isi Berita" name="konten"><?php echo isset($data[4])?$data[4]:''; ?></textarea>
+                                <textarea class="form-control content" placeholder="News Content" name="content"><?php echo isset($data[4])?$data[4]:''; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tiga" class="col-sm-2 control-label">Gambar</label>
+                            <label for="tiga" class="col-sm-2 control-label">Image</label>
                             <div class="col-sm-10">
                                 <input type="file" accept="image/*" name="foto" class="form-control" id="foto">
                                 <div id="image-holder">

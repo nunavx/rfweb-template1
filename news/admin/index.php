@@ -4,7 +4,7 @@ if(empty($_SESSION['kosong']))
 header("location:admlogin.php");
     
 extract($_POST);
-$con=mysqli_connect('localhost','root','xjjwknjt12','website');
+$con=mysqli_connect('localhost','root','Your Password','website');
 
 ?>
 

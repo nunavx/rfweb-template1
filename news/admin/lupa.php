@@ -1,6 +1,6 @@
 <?php
     
-$con=mysqli_connect('localhost','root','xjjwknjt12','website');
+$con=mysqli_connect('localhost','root','Your Password','website');
 
 $data=mysqli_fetch_row(mysqli_query($con,"select * from login"));
 

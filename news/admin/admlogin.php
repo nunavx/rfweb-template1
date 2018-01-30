@@ -1,7 +1,7 @@
 <?php
 session_start();
 extract($_POST);
-$con=mysqli_connect('localhost','root','xjjwknjt12','website');
+$con=mysqli_connect('localhost','root','Your Password','website');
 
 
 if(isset($_GET['qwi'])=="r")
