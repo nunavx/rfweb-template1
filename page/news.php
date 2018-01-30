@@ -16,7 +16,7 @@ while($output = mysql_fetch_assoc($query))
 	$topik = $output['content'];
 	echo $output['image'];
 	echo $topik .'<br / >';
-	echo date('D-M-Y', $output['date']).'<br / >';
+	echo $output['date']).'<br / >';
 	echo '<hr />'; 
 }
 ?>
