@@ -1,22 +1,21 @@
 <?php
-require_once('page/includes/rf-class.php');
-$rf = new rfgame();
+$file = file ("E:/RF Online Project/Server Files/Auros Server File 28-5-2017/2.ZoneServer/2.ZoneServer/SystemSave/ServerDisplay.ini"); // change your SystemSave/ServerDisplay.ini path here!!
+foreach($file as $line) 
+{ 
+if(strspn($line, "[") != 1) 
+parse_str($line); 
+} 
 
-//check RF Game server Online / Offline status
+echo "<tr><td><b><font size=2 color=#000000>"; 
+echo "<font color=#000> Total online: <font color=lime> $UserNum"; 
+echo "<div> "; 
+echo "<font color=#000> Accretia: <font color=lime> $A_Num"; 
+echo "</div> "; 
+echo "<div> "; 
+echo "<font color=#000> Bellato: <font color=lime> $B_Num"; 
+echo "</div> "; 
+echo "<div> "; 
+echo "<font color=#000> Cora: <font color=lime> $C_Num"; 
+echo "</div> "; 
 
-$status = $rf->statuscheck('127.0.0.1','10001','27780');
-
-//RF game status
-$status['gm_stat']; //return TRUE / FALSE
-//login status
-$status['lg_stat']; //return TRUE / FALSE
-
-//how many player in the game
-
-$total = $rf->user_status('C:\RF\ZoneServer\SystemSave\ServerDisplay.ini');
-
-echo $total['total']; //total all user
-echo $total['accretia'];
-echo $total['belato'];
-echo $total['cora'];
 ?>

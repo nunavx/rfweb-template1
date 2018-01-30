@@ -5,7 +5,8 @@
 
 </style>
 <?php
-mysql_connect('localhost','root','Your Password');
+
+mysql_connect('localhost','root','your password');
 mysql_select_db('website');
 $query = mysql_query('SELECT * FROM berita ORDER BY id DESC');
 while($output = mysql_fetch_assoc($query))
@@ -13,8 +14,9 @@ while($output = mysql_fetch_assoc($query))
 	$judul = '<h2>'.$output['title'].'</h2>';
 	echo $judul;
 	$topik = $output['content'];
+	echo $output['image'];
 	echo $topik .'<br / >';
-	echo $output['date']).'<br / >';
+	echo date('D-M-Y', $output['date']).'<br / >';
 	echo '<hr />'; 
 }
 ?>
