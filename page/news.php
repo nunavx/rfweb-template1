@@ -23,12 +23,10 @@
 
 .accordion:after {
     content: '\002B';
-	position: absolute;
-	right: 15px;
+    position: absolute;
+    right: 35%;
     color: #fff;
     font-weight: bold;
-    float: right;
-    margin-left: 5px;
 }
 
 .active:after {
