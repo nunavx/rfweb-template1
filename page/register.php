@@ -86,7 +86,7 @@ window.addEvent('domready', function() {
 <?php error_reporting (E_ALL ^ E_NOTICE);
 //MSSQL settings
 $db_user = 'sa'; // SQL ID
-$db_pass = 'Xjjwknjt12'; // SQL PASSWORD 
+$db_pass = 'your pass'; // SQL PASSWORD 
 $db_base = "RF_User"; // SQL BASE name 
 $db_host = "127.0.0.1\SQLEXPRESS"; // SQL HOST 
 
